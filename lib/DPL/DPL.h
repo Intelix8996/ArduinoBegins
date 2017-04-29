@@ -12,5 +12,13 @@ void On (int pinNum);
 
 void Off (int pinNum);
 
+void State (int pinNum, bool State);
+
+bool Read (int pinNum);
+
+void Blink (int pinNum, int dl);
+
+void MultiplyBlink (int pinNum, int dl, int times);
+
 #endif
 
