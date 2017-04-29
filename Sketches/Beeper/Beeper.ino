@@ -16,7 +16,8 @@ void loop() {
   if (Serial.available() > 0) {
     Delay = Serial.parseFloat();
     Serial.print("New delay: ");
-    Serial.println(Delay);
+    Serial.print(Delay);
+    Serial.println("ms");
   }
   /*
   if (millis() - timer == Delay)
