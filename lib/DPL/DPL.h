@@ -8,17 +8,48 @@
 #define BoardLEDOn digitalWrite(LEDBOARD, HIGH)
 #define BoardLEDOff digitalWrite(LEDBOARD, LOW)
 
-void On (int pinNum);
+#define BUFFER_EMPTY isBufferEmpty()
+#define BUFFER_FULL isBufferFull()
+#define BUFFER_OK isBufferOK()
 
-void Off (int pinNum);
+namespace DPL_DigitalPins {
 
-void State (int pinNum, bool State);
+    void On (int pinNum);
 
-bool Read (int pinNum);
+    void Off (int pinNum);
 
-void Blink (int pinNum, int dl);
+    void State (int pinNum, bool State);
 
-void MultiplyBlink (int pinNum, int dl, int times);
+    bool Read (int pinNum);
+
+    void Blink (int pinNum, int dl);
+
+    void MultiplyBlink (int pinNum, int dl, int times);
+}
+
+namespace DPL_SerialPort{
+
+    void Start(int bod);
+
+    void PrNum(int i);
+
+    void PrStr(char str[]);
+
+    void PrlnNum(int i);
+
+    void PrlnStr(String str);
+
+    int ReadInt();
+
+    float ReadFloat();
+
+    bool isBufferEmpty();
+
+    bool isBufferOK();
+
+    bool isBufferFull();
+
+}
 
 #endif
 
