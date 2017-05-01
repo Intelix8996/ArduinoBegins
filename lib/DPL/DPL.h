@@ -33,7 +33,7 @@ namespace DPL_SerialPort{
 
     void PrNum(int i);
 
-    void PrStr(char str[]);
+    void PrStr(String str);
 
     void PrlnNum(int i);
 

@@ -41,7 +41,7 @@ namespace DPL_SerialPort{
     void PrNum(int i){
         Serial.print(i);
     }
-    void PrStr(char str[]){
+    void PrStr(String str){
         Serial.print(str);
     }
     void PrlnNum(int i){
