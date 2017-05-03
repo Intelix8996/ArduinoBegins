@@ -12,6 +12,8 @@
 #define BUFFER_FULL isBufferFull()
 #define BUFFER_OK isBufferOK()
 
+#define S String
+
 namespace DPL_DigitalPins {
 
     void On (int pinNum);
@@ -29,15 +31,16 @@ namespace DPL_DigitalPins {
 
 namespace DPL_SerialPort{
 
+    enum PrintModes {
+        NEW_LINE,
+        LINE,
+    };
+
     void Start(int bod);
 
-    void PrNum(int i);
+    void Out(String str);
 
-    void PrStr(String str);
-
-    void PrlnNum(int i);
-
-    void PrlnStr(String str);
+    void Out(String str, int mode);
 
     int ReadInt();
 

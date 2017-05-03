@@ -35,21 +35,21 @@ namespace DPL_DigitalPins {
 }
 
 namespace DPL_SerialPort{
+
     void Start(int bod){
         Serial.begin(bod);
     }
-    void PrNum(int i){
-        Serial.print(i);
+
+
+    void Out(String str, int mode){
+        Serial.print(String(str));
+        if (mode == NEW_LINE)
+            Serial.println("");
     }
-    void PrStr(String str){
-        Serial.print(str);
+    void Out(String str){
+        Serial.print(String(str));
     }
-    void PrlnNum(int i){
-        Serial.println(i);
-    }
-    void PrlnStr(String str){
-        Serial.println(str);
-    }
+
     int ReadInt(){
         return Serial.parseInt();
     }
