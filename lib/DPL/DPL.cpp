@@ -49,6 +49,22 @@ namespace DPL_SerialPort{
     void Out(String str){
         Serial.print(String(str));
     }
+    void Out(int str, int mode){
+        Serial.print(str);
+        if (mode == NEW_LINE)
+            Serial.println("");
+    }
+    void Out(int str){
+        Serial.print(str);
+    }
+    void Out(float str, int mode){
+        Serial.print(str);
+        if (mode == NEW_LINE)
+            Serial.println("");
+    }
+    void Out(float str){
+        Serial.print(str);
+    }
 
     int ReadInt(){
         return Serial.parseInt();

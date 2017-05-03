@@ -42,6 +42,14 @@ namespace DPL_SerialPort{
 
     void Out(String str, int mode);
 
+    void Out(int str);
+
+    void Out(int str, int mode);
+
+    void Out(float str);
+
+    void Out(float str, int mode);
+
     int ReadInt();
 
     float ReadFloat();
