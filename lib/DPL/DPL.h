@@ -14,6 +14,15 @@
 
 #define S String
 
+#define more >
+#define less <
+#define either &&
+#define is =
+#define equal ==
+#define no !
+#define morequal >=
+#define lessequal <=
+
 namespace DPL_DigitalPins {
 
     void On (int pinNum);
@@ -50,9 +59,9 @@ namespace DPL_SerialPort{
 
     void Out(float str, int mode);
 
-    int ReadInt();
+    int In();
 
-    float ReadFloat();
+    float In(String arg);
 
     bool isBufferEmpty();
 

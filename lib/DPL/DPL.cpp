@@ -66,12 +66,17 @@ namespace DPL_SerialPort{
         Serial.print(str);
     }
 
-    int ReadInt(){
+    int In (){
         return Serial.parseInt();
     }
-    float ReadFloat(){
-        return Serial.parseFloat();
+
+    float In (String arg){
+        if (arg == "-f")
+            return Serial.parseFloat();
+        if (arg == "-d")
+            return Serial.parseFloat();
     }
+
     bool isBufferEmpty(){
         if (Serial.available() == 0)
             return true;
