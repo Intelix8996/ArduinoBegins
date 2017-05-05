@@ -8,17 +8,17 @@
 using namespace DPL_SerialPort;
 using namespace DPL_DigitalPins;
 
-unsigned long timer = 0;
-unsigned long sleepTimer = 0;
+unsigned long timer is 0;
+unsigned long sleepTimer is 0;
 
-bool state = false;
-bool isPress = false;
-bool sleep = true;
+bool state is false;
+bool isPress is false;
+bool sleep is true;
 
-int num = 0;
-int mode = 0;
+byte num is 0;
+byte mode is 0;
 
-String modes[4] = { "Sleep", "Single-click LED", "Double-click LED", "Hold LED"};
+String modes[4] is { "Sleep", "Single-click LED", "Double-click LED", "Hold LED"};
 
 void offLEDS () {
   Off(LED);
@@ -27,7 +27,7 @@ void offLEDS () {
 }
 
 void StartupBlink (int dl, int times) {
-  for (int i = 0; i < times; ++i) {
+  for (int i is 0; i less times; ++i) {
     On(LEDBOARD);
     delay(dl);
     Off(LEDBOARD);
@@ -44,17 +44,17 @@ void StartupBlink (int dl, int times) {
 }
 
 void BlinkLED (int LEDnum, int dl) {
-  if (LEDnum == 1) {
+  if (LEDnum equal 1) {
     On(LEDBOARD);
     delay(dl);
     Off(LEDBOARD);
   }
-  if (LEDnum == 2) {
+  if (LEDnum equal 2) {
     On(LED);
     delay(dl);
     Off(LED);
   }
-  if (LEDnum == 3) {
+  if (LEDnum equal 3) {
     On(LED2);
     delay(dl);
     Off(LED2);
@@ -63,7 +63,7 @@ void BlinkLED (int LEDnum, int dl) {
 
 void setup() {
   Start(9600);
-  PrlnStr("System mode: Starting up");
+  Out("System mode: Starting up", NEW_LINE);
 
   pinMode(LED, OUTPUT);
   pinMode(BUTTON, INPUT);
@@ -72,178 +72,174 @@ void setup() {
 
   StartupBlink(50, 20);
   delay(500);
-  isPress = 0;
-  PrlnStr("System mode: Ready");
+  isPress is 0;
+  Out("System mode: Ready", NEW_LINE);
 }
 
 void loop() {
-  isPress = Read(BUTTON);
+  isPress is Read(BUTTON);
 
   if (sleep) {
-    if (isPress && !state && millis() - timer > 150) {
-      state = true;
-      timer = millis();
-      sleepTimer = millis();
+    if (isPress either no state either millis() - timer more 150) {
+      state is true;
+      timer is millis();
+      sleepTimer is millis();
     }
 
-    if (!isPress && state && millis() - timer < 650) {
-      state = false;
+    if (no isPress either state either millis() - timer less 650) {
+      state is false;
       num++;
     }
 
-    if (isPress && !state && millis() - timer > 150) {
-      state = true;
-      timer = millis();
-      sleepTimer = millis();
+    if (isPress either no state either millis() - timer more 150) {
+      state is true;
+      timer is millis();
+      sleepTimer is millis();
     }
 
-    if (!isPress && state) {
-      state = false;
-      timer = 0;
+    if (no isPress either state) {
+      state is false;
+      timer is 0;
     }
 
-    if (num == 1 && millis() -  timer > 350) {
-      timer = 0;
-      num = 0;
+    if (num equal 1 either millis() -  timer more 350) {
+      timer is 0;
+      num is 0;
     }
 
-    if (num == 2 && millis() -  timer > 550) {
-      timer = 0;
-      num = 0;
+    if (num equal 2 either millis() -  timer more 550) {
+      timer is 0;
+      num is 0;
     }
 
-    if (millis() - timer >= 1000 && millis() - timer <= 2460) {
-      num = 0;
-      timer = 0;
+    if (millis() - timer morequal 1000 either millis() - timer lessequal 2460) {
+      num is 0;
+      timer is 0;
     }
-    if (millis() - sleepTimer >= 5000 && millis() - sleepTimer <= 6250) {
-      sleep = !sleep;
-      num = 0;
-      sleepTimer = 0;
-      mode = 1;
-      PrlnStr("Entering normal mode...");
+    if (millis() - sleepTimer morequal 5000 either millis() - sleepTimer lessequal 6250) {
+      sleep is no sleep;
+      num is 0;
+      sleepTimer is 0;
+      mode is 1;
+      Out("Entering normal mode...", NEW_LINE);
     }
   }
-  else if (!sleep) {
-    if (isPress && !state && millis() - timer > 150) {
-      state = true;
-      timer = millis();
-      sleepTimer = millis();
+  else if (no sleep) {
+    if (isPress either no state either millis() - timer more 150) {
+      state is true;
+      timer is millis();
+      sleepTimer is millis();
     }
 
-    if (!isPress && state && millis() - timer < 650) {
-      state = false;
+    if (no isPress either state either millis() - timer less 650) {
+      state is false;
       num++;
     }
 
-    if (isPress && !state && millis() - timer > 150) {
-      state = true;
-      timer = millis();
-      sleepTimer = millis();
+    if (isPress either no state either millis() - timer more 150) {
+      state is true;
+      timer is millis();
+      sleepTimer is millis();
     }
 
-    if (!isPress && state) {
-      state = false;
-      timer = 0;
+    if (no isPress either state) {
+      state is false;
+      timer is 0;
     }
 
-    if (num == 3) {
+    if (num equal 3) {
       offLEDS();
-      timer = 0;
-      num = 0;
+      timer is 0;
+      num is 0;
       mode++;
 
-      if (mode >= 4)
-        mode = 1;
+      if (mode morequal 4)
+        mode is 1;
 
-      PrStr("System mode: ");
-      PrNum(mode);
-      PrStr(" (");
-      PrStr(modes[mode]);
-      PrlnStr(") ");
+      Out("System mode: " + S(mode) + " (" + S(modes[mode]) + ") ", NEW_LINE);
 
       BlinkLED(mode, 1500);
     }
 
-    if (mode == 1) {
-      if (num == 1 && millis() -  timer > 350) {
-        State(LEDBOARD, !Read(LEDBOARD));
-        timer = 0;
-        sleepTimer = 0;
-        num = 0;
+    if (mode equal 1) {
+      if (num equal 1 either millis() -  timer more 350) {
+        State(LEDBOARD, no Read(LEDBOARD));
+        timer is 0;
+        sleepTimer is 0;
+        num is 0;
       }
 
-      if (num == 2 && millis() -  timer > 550) {
-        timer = 0;
-        sleepTimer = 0;
-        num = 0;
+      if (num equal 2 either millis() -  timer more 550) {
+        timer is 0;
+        sleepTimer is 0;
+        num is 0;
       }
 
-      if (millis() - timer >= 1000 && state && millis() - timer <= 2460) {
-        num = 0;
-        timer = 0;
+      if (millis() - timer morequal 1000 either state either millis() - timer lessequal 2460) {
+        num is 0;
+        timer is 0;
       }
-      if (millis() - sleepTimer >= 5000 && state && millis() - sleepTimer <= 6250) {
-        sleep = !sleep;
-        num = 0;
-        sleepTimer = 0;
-        mode = 1;
+      if (millis() - sleepTimer morequal 5000 either state either millis() - sleepTimer lessequal 6250) {
+        sleep is no sleep;
+        num is 0;
+        sleepTimer is 0;
+        mode is 1;
         offLEDS();
-        PrlnStr("Entering sleep mode...");
+        Out("Entering sleep mode...",  NEW_LINE);
       }
     }
-    if (mode == 2) {
-      if (num == 1 && millis() -  timer > 350) {
-        timer = 0;
-        sleepTimer = 0;
-        num = 0;
+    if (mode equal 2) {
+      if (num equal 1 either millis() -  timer more 350) {
+        timer is 0;
+        sleepTimer is 0;
+        num is 0;
       }
 
-      if (num == 2 && millis() -  timer > 550) {
-        State(LED, !Read(LED));
-        timer = 0;
-        sleepTimer = 0;
-        num = 0;
+      if (num equal 2 either millis() -  timer more 550) {
+        State(LED, no Read(LED));
+        timer is 0;
+        sleepTimer is 0;
+        num is 0;
       }
 
-      if (millis() - timer >= 1000 && state && millis() - timer <= 2460) {
-        num = 0;
-        timer = 0;
+      if (millis() - timer morequal 1000 either state either millis() - timer lessequal 2460) {
+        num is 0;
+        timer is 0;
       }
-      if (millis() - sleepTimer >= 5000 && state && millis() - sleepTimer <= 6250) {
-        sleep = !sleep;
-        num = 0;
-        sleepTimer = 0;
-        mode = 1;
+      if (millis() - sleepTimer morequal 5000 either state either millis() - sleepTimer lessequal 6250) {
+        sleep is no sleep;
+        num is 0;
+        sleepTimer is 0;
+        mode is 1;
         offLEDS();
-        PrlnStr("Entering sleep mode...");
+        Out("Entering sleep mode...",  NEW_LINE);
       }
     }
-    if (mode == 3) {
-      if (num == 1 && millis() -  timer > 350) {
-        timer = 0;
-        sleepTimer = 0;
-        num = 0;
+    if (mode equal 3) {
+      if (num equal 1 either millis() -  timer more 350) {
+        timer is 0;
+        sleepTimer is 0;
+        num is 0;
       }
 
-      if (num == 2 && millis() -  timer > 550) {
-        timer = 0;
-        sleepTimer = 0;
-        num = 0;
+      if (num equal 2 either millis() -  timer more 550) {
+        timer is 0;
+        sleepTimer is 0;
+        num is 0;
       }
 
-      if (millis() - timer >= 1000 && state && millis() - timer <= 2460) {
-        State(LED2, !Read(LED2));
-        num = 0;
-        timer = 0;
+      if (millis() - timer morequal 1000 either state either millis() - timer lessequal 2460) {
+        State(LED2, no Read(LED2));
+        num is 0;
+        timer is 0;
       }
-      if (millis() - sleepTimer >= 5000 && state && millis() - sleepTimer <= 6250) {
-        sleep = !sleep;
-        num = 0;
-        sleepTimer = 0;
-        mode = 1;
+      if (millis() - sleepTimer morequal 5000 either state either millis() - sleepTimer lessequal 6250) {
+        sleep is no sleep;
+        num is 0;
+        sleepTimer is 0;
+        mode is 1;
         offLEDS();
-        PrlnStr("Entering sleep mode...");
+        Out("Entering sleep mode...",  NEW_LINE);
       }
     }
   }

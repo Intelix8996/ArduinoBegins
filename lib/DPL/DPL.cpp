@@ -40,32 +40,6 @@ namespace DPL_SerialPort{
         Serial.begin(bod);
     }
 
-
-    void Out(String str, int mode){
-        Serial.print(String(str));
-        if (mode == NEW_LINE)
-            Serial.println("");
-    }
-    void Out(String str){
-        Serial.print(String(str));
-    }
-    void Out(int str, int mode){
-        Serial.print(str);
-        if (mode == NEW_LINE)
-            Serial.println("");
-    }
-    void Out(int str){
-        Serial.print(str);
-    }
-    void Out(float str, int mode){
-        Serial.print(str);
-        if (mode == NEW_LINE)
-            Serial.println("");
-    }
-    void Out(float str){
-        Serial.print(str);
-    }
-
     int In (){
         return Serial.parseInt();
     }
@@ -75,6 +49,8 @@ namespace DPL_SerialPort{
             return Serial.parseFloat();
         if (arg == "-d")
             return Serial.parseFloat();
+        else
+            return Serial.parseInt();
     }
 
     bool isBufferEmpty(){

@@ -45,23 +45,13 @@ namespace DPL_SerialPort{
         LINE,
     };
 
+    #include "comm_impl.h"
+
+    int In ();
+
+    float In (String arg);
+
     void Start(int bod);
-
-    void Out(String str);
-
-    void Out(String str, int mode);
-
-    void Out(int str);
-
-    void Out(int str, int mode);
-
-    void Out(float str);
-
-    void Out(float str, int mode);
-
-    int In();
-
-    float In(String arg);
 
     bool isBufferEmpty();
 
