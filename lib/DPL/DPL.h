@@ -47,10 +47,6 @@ namespace DPL_SerialPort{
 
     #include "comm_impl.h"
 
-    int In ();
-
-    float In (String arg);
-
     void Start(int bod);
 
     bool isBufferEmpty();

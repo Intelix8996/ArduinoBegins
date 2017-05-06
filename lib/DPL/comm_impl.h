@@ -11,3 +11,7 @@ void Out(T str)
 {
     Serial.print(String(str));
 }
+
+int In ();
+
+float In (String arg);
