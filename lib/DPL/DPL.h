@@ -23,6 +23,34 @@
 #define morequal >=
 #define lessequal <=
 
+namespace DPL_PWM{
+    #include "PWM.h"
+
+    int Get(int pinNum);
+}
+
+namespace DPL_RGB{
+    class RGB{
+    public:
+        int PIN_R = 13;
+        int PIN_G = 13;
+        int PIN_B = 13;
+        byte R = 0;
+        byte G = 0;
+        byte B = 0;
+
+        RGB(int PIN_R, int PIN_G, int PIN_B);
+
+        void Set(byte R, byte G, byte B);
+    };
+
+    void Out(RGB LED);
+
+    void Out(RGB LED, int mode);
+
+    void Out(String NAME, RGB LED, int mode);
+}
+
 namespace DPL_DigitalPins {
 
     void On (int pinNum);

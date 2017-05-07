@@ -1,6 +1,50 @@
 #include "Arduino.h"
 #include "DPL.h"
 
+namespace DPL_PWM{
+    int Get(int pinNum){
+        return analogRead(pinNum);
+    }
+}
+
+namespace DPL_RGB{
+    RGB::RGB(int PIN_R, int PIN_G, int PIN_B){
+        this->PIN_R = PIN_R;
+        this->PIN_G = PIN_G;
+        this->PIN_B = PIN_B;
+
+        pinMode(this->PIN_R, OUTPUT);
+        pinMode(this->PIN_G, OUTPUT);
+        pinMode(this->PIN_B, OUTPUT);
+    }
+
+    void RGB::Set(byte R, byte G, byte B){
+        this->R = R;
+        this->G = G;
+        this->B = B;
+
+        analogWrite(PIN_R, this->R);
+        analogWrite(PIN_G, this->G);
+        analogWrite(PIN_B, this->B);
+    }
+
+    void Out(RGB LED){
+        DPL_SerialPort::Out("R: " + S(LED.R) + " on Pin " + S(LED.PIN_R) + "   G: " + S(LED.G) + " on Pin " + S(LED.PIN_G) + "   B: " + S(LED.B) + " on Pin " + S(LED.PIN_B));
+    }
+
+    void Out(RGB LED, int mode){
+        DPL_SerialPort::Out("R: " + S(LED.R) + " on Pin " + S(LED.PIN_R) + "   G: " + S(LED.G) + " on Pin " + S(LED.PIN_G) + "   B: " + S(LED.B) + " on Pin " + S(LED.PIN_B));
+        if (mode == DPL_SerialPort::NEW_LINE)
+            Serial.println("");
+    }
+
+    void Out(String NAME, RGB LED, int mode){
+        DPL_SerialPort::Out(NAME + ": " + "R: " + S(LED.R) + " on Pin " + S(LED.PIN_R) + "   G: " + S(LED.G) + " on Pin " + S(LED.PIN_G) + "   B: " + S(LED.B) + " on Pin " + S(LED.PIN_B));
+        if (mode == DPL_SerialPort::NEW_LINE)
+            Serial.println("");
+    }
+}
+
 namespace DPL_DigitalPins {
     void On (int pinNum){
         digitalWrite(pinNum, HIGH);
