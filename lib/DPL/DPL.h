@@ -23,6 +23,12 @@
 #define morequal >=
 #define lessequal <=
 
+#define BLACK Color(0, 0, 0)
+#define WHITE Color(255, 255, 255)
+#define RED Color(255, 0, 0)
+#define GREEN Color(0, 255, 0)
+#define BLUE Color(0, 0, 255)
+
 namespace DPL_PWM{
     #include "PWM.h"
 
@@ -30,18 +36,33 @@ namespace DPL_PWM{
 }
 
 namespace DPL_RGB{
+    struct Color{
+    public:
+        byte R = 0;
+        byte G = 0;
+        byte B = 0;
+
+        Color (byte R, byte G, byte B);
+    };
+
+
     class RGB{
     public:
         int PIN_R = 13;
         int PIN_G = 13;
         int PIN_B = 13;
-        byte R = 0;
-        byte G = 0;
-        byte B = 0;
+
+        Color color = Color(0, 0, 0);
 
         RGB(int PIN_R, int PIN_G, int PIN_B);
 
         void Set(byte R, byte G, byte B);
+
+        void Set(Color cl);
+
+        void Lerp(Color targetColor, int step);
+
+        void Lerp(Color baseColor, Color targetColor, int step);
     };
 
     void Out(RGB LED);
