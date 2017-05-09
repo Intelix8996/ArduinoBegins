@@ -46,116 +46,50 @@ namespace DPL_RGB{
     }
 
     void RGB::Lerp(Color targetColor, int step){
-        byte maxTargetNum = 0;
-        byte minTargetNum = 0;
-        byte minBaseNum = 0;
+        while (true){
+            if (color.R < targetColor.R && color.R + step <= 255)
+                color.R += step;
+            if (color.R > targetColor.R && color.R - step >= 0)
+                color.R -= step;
+            if (color.G < targetColor.G && color.G + step <= 255)
+                color.G += step;
+            if (color.G > targetColor.G && color.G - step >= 0)
+                color.G -= step;
+            if (color.B < targetColor.B && color.B + step <= 255)
+                color.B += step;
+            if (color.B > targetColor.B && color.B - step >= 0)
+                color.B -= step;
 
-        if (targetColor.R > targetColor.G && targetColor.R > targetColor.B)
-            maxTargetNum = targetColor.R;
-        if (targetColor.G > targetColor.R && targetColor.G > targetColor.B)
-            maxTargetNum = targetColor.G;
-        if (targetColor.B > targetColor.G && targetColor.B > targetColor.R)
-            maxTargetNum = targetColor.B;
+            if (color.R <= targetColor.R+3 && color.R >= targetColor.R-3 && color.G <= targetColor.G+3 && color.G >= targetColor.G-3 && color.B <= targetColor.B+3 && color.B >= targetColor.B-3)
+                break;
 
-        if (targetColor.R < targetColor.G && targetColor.R < targetColor.B)
-            minTargetNum = targetColor.R;
-        if (targetColor.G < targetColor.R && targetColor.G < targetColor.B)
-            minTargetNum = targetColor.G;
-        if (targetColor.B < targetColor.G && targetColor.B < targetColor.R)
-            minTargetNum = targetColor.B;
-
-        if(color.R < color.G && color.R < color.B)
-            minBaseNum = color.R;
-        if(color.G < color.R && color.G < color.B)
-            minBaseNum = color.G;
-        if(color.B < color.G && color.B < color.R)
-            minBaseNum = color.B;
-
-        if (minBaseNum < maxTargetNum){
-            for (int i = 0; i < maxTargetNum; i += step){
-                if (color.R < targetColor.R)
-                    color.R += step;
-                if (color.G < targetColor.G)
-                    color.G += step;
-                if (color.B < targetColor.B)
-                    color.B += step;
-
-                Set(color);
-                DPL_SerialPort::Out(S(color.R) + " " + S(color.G) + " " + S(color.B), 0);
-                delay(1);
-            }
-        }
-        else
-        {
-            for (int i = 255; i > minTargetNum; i -= step){
-                if (color.R > targetColor.R)
-                    color.R -= step;
-                if (color.G > targetColor.G)
-                    color.G -= step;
-                if (color.B > targetColor.B)
-                    color.B -= step;
-
-                Set(color);
-                DPL_SerialPort::Out(S(color.R) + " " + S(color.G) + " " + S(color.B), 0);
-                delay(1);
-            }
+            Set(color);
+            delay(1);
         }
     }
 
     void RGB::Lerp(Color baseColor, Color targetColor, int step){
         color = baseColor;
 
-        byte maxTargetNum = 0;
-        byte minTargetNum = 0;
-        byte minBaseNum = 0;
+        while (true){
+            if (color.R < targetColor.R && color.R + step <= 255)
+                color.R += step;
+            if (color.R > targetColor.R && color.R - step >= 0)
+                color.R -= step;
+            if (color.G < targetColor.G && color.G + step <= 255)
+                color.G += step;
+            if (color.G > targetColor.G && color.G - step >= 0)
+                color.G -= step;
+            if (color.B < targetColor.B && color.B + step <= 255)
+                color.B += step;
+            if (color.B > targetColor.B && color.B - step >= 0)
+                color.B -= step;
 
-        if (targetColor.R >= targetColor.G && targetColor.R >= targetColor.B)
-            maxTargetNum = targetColor.R;
-        if (targetColor.G >= targetColor.R && targetColor.G >= targetColor.B)
-            maxTargetNum = targetColor.G;
-        if (targetColor.B >= targetColor.G && targetColor.B >= targetColor.R)
-            maxTargetNum = targetColor.B;
+            if (color.R <= targetColor.R+3 && color.R >= targetColor.R-3 && color.G <= targetColor.G+3 && color.G >= targetColor.G-3 && color.B <= targetColor.B+3 && color.B >= targetColor.B-3)
+                break;
 
-        if (targetColor.R <= targetColor.G && targetColor.R <= targetColor.B)
-            minTargetNum = targetColor.R;
-        if (targetColor.G <= targetColor.R && targetColor.G <= targetColor.B)
-            minTargetNum = targetColor.G;
-        if (targetColor.B <= targetColor.G && targetColor.B <= targetColor.R)
-            minTargetNum = targetColor.B;
-
-        if(color.R <= color.G && color.R <= color.B)
-            minBaseNum = color.R;
-        if(color.G <= color.R && color.G <= color.B)
-            minBaseNum = color.G;
-        if(color.B <= color.G && color.B <= color.R)
-            minBaseNum = color.B;
-
-        if (minBaseNum < maxTargetNum){
-            for (int i = 0; i < maxTargetNum; i += step){
-                if (color.R < targetColor.R)
-                    color.R += step;
-                if (color.G < targetColor.G)
-                    color.G += step;
-                if (color.B < targetColor.B)
-                    color.B += step;
-
-                Set(color);
-                delay(1);
-            }
-        }
-        else
-        {
-            for (int i = 255; i > minTargetNum; i -= step){
-                if (color.R > targetColor.R)
-                    color.R -= step;
-                if (color.G > targetColor.G)
-                    color.G -= step;
-                if (color.B > targetColor.B)
-                    color.B -= step;
-
-                Set(color);
-                delay(1);
-            }
+            Set(color);
+            delay(1);
         }
     }
 
