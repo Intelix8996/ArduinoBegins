@@ -1,0 +1,1 @@
+Copy and paste the contents of Stino-Stino-Dev to C:\Users\_YourUser_\AppData\Roaming\Sublime Text 3\Packages\_Your Stino Folder_(Stino must be installed, this is only an add-on)

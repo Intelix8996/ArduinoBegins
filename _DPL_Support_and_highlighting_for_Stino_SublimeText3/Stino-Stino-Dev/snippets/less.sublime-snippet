@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+less
+]]></content>
+    <tabTrigger>less</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino less operator</description>
+</snippet>

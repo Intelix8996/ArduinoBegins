@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+S(${1:Source});
+]]></content>
+    <tabTrigger>S</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino convert to string</description>
+</snippet>

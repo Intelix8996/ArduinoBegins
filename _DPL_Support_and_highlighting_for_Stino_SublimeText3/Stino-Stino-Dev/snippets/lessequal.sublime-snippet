@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+lessequal
+]]></content>
+    <tabTrigger>lessequal</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino less or equal operator</description>
+</snippet>

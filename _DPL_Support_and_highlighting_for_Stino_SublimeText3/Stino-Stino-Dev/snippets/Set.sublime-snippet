@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+Set(${1:Pin}, ${2:value});
+]]></content>
+    <tabTrigger>Set</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino Set for PWM</description>
+</snippet>

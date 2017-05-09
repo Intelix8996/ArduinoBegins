@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+BUFFER_OK
+]]></content>
+    <tabTrigger>BUFFER_OK</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Serial buffer state</description>
+</snippet>

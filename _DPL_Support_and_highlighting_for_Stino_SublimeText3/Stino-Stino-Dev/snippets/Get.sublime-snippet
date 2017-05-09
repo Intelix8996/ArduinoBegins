@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+Get(${1:Pin});
+]]></content>
+    <tabTrigger>Get</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino Get for PWM</description>
+</snippet>

@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+Lerp(${1:targetColor}, ${2:Step});
+]]></content>
+    <tabTrigger>Lerp</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino RGB Lerp</description>
+</snippet>

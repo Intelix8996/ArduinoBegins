@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+Out(${1:Content}, ${2:mode});
+]]></content>
+    <tabTrigger>Out</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>DPL Out</description>
+</snippet>

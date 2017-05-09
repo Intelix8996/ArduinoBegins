@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+either
+]]></content>
+    <tabTrigger>either</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino and operator</description>
+</snippet>

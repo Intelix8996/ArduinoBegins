@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+Off(${1:Pin});
+]]></content>
+    <tabTrigger>Off</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Sets LOW state on pin</description>
+</snippet>

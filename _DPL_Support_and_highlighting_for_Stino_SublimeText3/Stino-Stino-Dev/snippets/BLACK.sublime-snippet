@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+BLACK
+]]></content>
+    <tabTrigger>BLACK</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino black color constant</description>
+</snippet>

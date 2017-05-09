@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+Read(${1:pin});
+]]></content>
+    <tabTrigger>Read</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Reads the state of pin</description>
+</snippet>

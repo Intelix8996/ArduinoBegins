@@ -65,11 +65,11 @@ namespace DPL_RGB{
         void Lerp(Color baseColor, Color targetColor, int step);
     };
 
-    void Out(RGB LED);
+    void Out(RGB LED_OBJ);
 
-    void Out(RGB LED, int mode);
+    void Out(RGB LED_OBJ, int mode);
 
-    void Out(String NAME, RGB LED, int mode);
+    void Out(String NAME, RGB LED_OBJ, int mode);
 }
 
 namespace DPL_DigitalPins {

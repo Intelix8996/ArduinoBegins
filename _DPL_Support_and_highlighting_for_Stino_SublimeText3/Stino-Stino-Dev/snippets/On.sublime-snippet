@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+On(${1:Pin});
+]]></content>
+    <tabTrigger>On</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Sets HIGH state on pin</description>
+</snippet>

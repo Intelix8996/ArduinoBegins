@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+RED
+]]></content>
+    <tabTrigger>RED</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino red color constant</description>
+</snippet>

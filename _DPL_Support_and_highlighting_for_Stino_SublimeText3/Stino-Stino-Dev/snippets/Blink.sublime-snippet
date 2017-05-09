@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+Blink(${1:Pin}, ${2:Delay});
+]]></content>
+    <tabTrigger>Blink</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Sets HIGH state on pin for some delay</description>
+</snippet>
