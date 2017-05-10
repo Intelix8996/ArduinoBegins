@@ -109,17 +109,17 @@ namespace DPL_RGB{
     }
 
     void Out(RGB LED_OBJ){
-        DPL_SerialPort::Out("R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "   G: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "   B: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
+        DPL_SerialPort::Out("R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "\t\tG: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "\t\tB: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
     }
 
     void Out(RGB LED_OBJ, int mode){
-        DPL_SerialPort::Out("R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "   G: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "   B: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
+        DPL_SerialPort::Out("R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "\t\tG: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "\t\tB: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
         if (mode == DPL_SerialPort::NEW_LINE)
             Serial.println("");
     }
 
     void Out(String NAME, RGB LED_OBJ, int mode){
-        DPL_SerialPort::Out(NAME + ": " + "R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "   G: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "   B: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
+        DPL_SerialPort::Out(NAME + ": " + "R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "\t\tG: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "\t\tB: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
         if (mode == DPL_SerialPort::NEW_LINE)
             Serial.println("");
     }

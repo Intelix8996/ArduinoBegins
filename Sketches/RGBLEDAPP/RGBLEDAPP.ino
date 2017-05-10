@@ -6,18 +6,29 @@
 
 using namespace DPL_DigitalPins;
 using namespace DPL_SerialPort;
+using namespace DPL_RGB;
 
 int val = 0;
 int dl = 500;
 
+RGB LED(10,6,5,NEGATIVE);
+
 void setup() {
-  pinMode(RES_R, OUTPUT);
-  pinMode(RES_G, OUTPUT);
-  pinMode(RES_B, OUTPUT);
+  //pinMode(RES_R, OUTPUT);
+  //pinMode(RES_G, OUTPUT);
+  //pinMode(RES_B, OUTPUT);
   Start(9600);
 }
 
 void loop() {
+  LED.Set(random(0, 255), random(0, 255), random(0, 255));
+
+  if (BUFFER_OK)
+    dl = In();
+
+  Out("LED", LED, NEW_LINE);
+  delay(dl);
+  /*
   byte R = random(0, 255);
   byte G = random(0, 255);
   byte B = random(0, 255);
@@ -29,7 +40,7 @@ void loop() {
   analogWrite(RES_G, G);
   analogWrite(RES_B, B);
   Out("R: " + S(R) + " G: " + S(G) + " B: " + S(B) + " Delay: " + S(dl), NEW_LINE);
-  delay(dl);
+  delay(dl);*/
   
   /*
   if (BUFFER_OK){
