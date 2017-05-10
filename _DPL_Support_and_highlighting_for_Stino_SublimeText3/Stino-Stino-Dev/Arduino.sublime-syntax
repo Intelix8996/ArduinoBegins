@@ -10,7 +10,7 @@ contexts:
     - match: ''
       push: Packages/C++/C++.sublime-syntax
       with_prototype:
-        - match: \b(HIGH|LOW|INPUT|OUTPUT|INPUT_PULLUP|LED_BUILTIN|LEDBOARD|BUFFER_EMPTY|BUFFER_FULL|BUFFER_OK|BLACK|WHITE|RED|GREEN|BLUE|LINE|NEW_LINE)\b
+        - match: \b(HIGH|LOW|INPUT|OUTPUT|INPUT_PULLUP|LED_BUILTIN|LEDBOARD|BUFFER_EMPTY|BUFFER_FULL|BUFFER_OK|BLACK|WHITE|RED|GREEN|BLUE|LINE|NEW_LINE|POSITIVE|NEGATIVE)\b
           scope: constant.language.arduino
         - match: \b(boolean|word|String|string|array|Color|RGB)\b
           scope: storage.type.arduino

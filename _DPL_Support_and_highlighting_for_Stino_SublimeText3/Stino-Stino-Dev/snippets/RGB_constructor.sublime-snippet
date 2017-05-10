@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-RGB(${1:Pin_Red}, ${2:Pin_Green}, ${3:Pin_Blue});
+RGB(${1:Pin_Red}, ${2:Pin_Green}, ${3:Pin_Blue}, ${4:LED_Type});
 ]]></content>
     <tabTrigger>RGB</tabTrigger>
     <scope>source.arduino</scope>

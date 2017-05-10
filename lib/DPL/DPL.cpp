@@ -15,10 +15,11 @@ namespace DPL_RGB{
         this->B = B;
     }
 
-    RGB::RGB(int PIN_R, int PIN_G, int PIN_B){
+    RGB::RGB(int PIN_R, int PIN_G, int PIN_B, int TYPE){
         this->PIN_R = PIN_R;
         this->PIN_G = PIN_G;
         this->PIN_B = PIN_B;
+        this->TYPE = TYPE;
 
         pinMode(this->PIN_R, OUTPUT);
         pinMode(this->PIN_G, OUTPUT);
@@ -26,13 +27,20 @@ namespace DPL_RGB{
     }
 
     void RGB::Set(byte R, byte G, byte B){
-        this->color.R = R;
-        this->color.G = G;
-        this->color.B = B;
+        color.R = R;
+        color.G = G;
+        color.B = B;
 
-        analogWrite(PIN_R, this->color.R);
-        analogWrite(PIN_G, this->color.G);
-        analogWrite(PIN_B, this->color.B);
+        if (TYPE == POSITIVE){
+            analogWrite(PIN_R, color.R);
+            analogWrite(PIN_G, color.G);
+            analogWrite(PIN_B, color.B);
+        }
+        if (TYPE == NEGATIVE){
+            analogWrite(PIN_R, 255-color.R);
+            analogWrite(PIN_G, 255-color.G);
+            analogWrite(PIN_B, 255-color.B);
+        }
     }
 
     void RGB::Set(Color cl){
@@ -40,9 +48,16 @@ namespace DPL_RGB{
         this->color.G = cl.G;
         this->color.B = cl.B;
 
-        analogWrite(PIN_R, this->color.R);
-        analogWrite(PIN_G, this->color.G);
-        analogWrite(PIN_B, this->color.B);
+        if (TYPE == POSITIVE){
+            analogWrite(PIN_R, color.R);
+            analogWrite(PIN_G, color.G);
+            analogWrite(PIN_B, color.B);
+        }
+        if (TYPE == NEGATIVE){
+            analogWrite(PIN_R, 255-color.R);
+            analogWrite(PIN_G, 255-color.G);
+            analogWrite(PIN_B, 255-color.B);
+        }
     }
 
     void RGB::Lerp(Color targetColor, int step){
@@ -60,7 +75,7 @@ namespace DPL_RGB{
             if (color.B > targetColor.B && color.B - step >= 0)
                 color.B -= step;
 
-            if (color.R <= targetColor.R+3 && color.R >= targetColor.R-3 && color.G <= targetColor.G+3 && color.G >= targetColor.G-3 && color.B <= targetColor.B+3 && color.B >= targetColor.B-3)
+            if (color.R <= targetColor.R+step && color.R >= targetColor.R-step && color.G <= targetColor.G+step && color.G >= targetColor.G-step && color.B <= targetColor.B+step && color.B >= targetColor.B-step)
                 break;
 
             Set(color);
@@ -85,7 +100,7 @@ namespace DPL_RGB{
             if (color.B > targetColor.B && color.B - step >= 0)
                 color.B -= step;
 
-            if (color.R <= targetColor.R+3 && color.R >= targetColor.R-3 && color.G <= targetColor.G+3 && color.G >= targetColor.G-3 && color.B <= targetColor.B+3 && color.B >= targetColor.B-3)
+            if (color.R <= targetColor.R+step && color.R >= targetColor.R-step && color.G <= targetColor.G+step && color.G >= targetColor.G-step && color.B <= targetColor.B+step && color.B >= targetColor.B-step)
                 break;
 
             Set(color);

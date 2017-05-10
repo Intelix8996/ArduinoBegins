@@ -36,6 +36,11 @@ namespace DPL_PWM{
 }
 
 namespace DPL_RGB{
+    enum LED_Types{
+        POSITIVE,
+        NEGATIVE
+    };
+
     struct Color{
     public:
         byte R = 0;
@@ -51,10 +56,11 @@ namespace DPL_RGB{
         int PIN_R = 13;
         int PIN_G = 13;
         int PIN_B = 13;
+        int TYPE = 0;
 
         Color color = Color(0, 0, 0);
 
-        RGB(int PIN_R, int PIN_G, int PIN_B);
+        RGB(int PIN_R, int PIN_G, int PIN_B, int TYPE);
 
         void Set(byte R, byte G, byte B);
 
