@@ -1,3 +1,28 @@
+#define BUZZER 12
+
+#include "DPL.h"
+
+using namespace DPL_SerialPort;
+
+int Freq = 500;
+
+void setup() {
+  Start(9600);
+  pinMode(BUZZER, OUTPUT);
+  Out("System Ready!", NEW_LINE);
+  tone(BUZZER, Freq);
+}
+
+void loop() {
+  if (BUFFER_OK) {
+    Freq = In();
+    Out("\nNew Freq: " + S(Freq), NEW_LINE);
+    noTone(BUZZER);
+    tone(BUZZER, Freq);
+  }
+}
+
+/*
 #define BUZZER 3
 #define high digitalWrite(BUZZER, HIGH)
 #define low digitalWrite(BUZZER, LOW);
@@ -26,10 +51,11 @@ void loop() {
   if (millis() - timer >= (Delay * 2)){
     low;
     timer = millis();
-  }*/
+  }
   
   high;
   delay(Delay);
   low;
   delay(Delay);
 }
+*/
