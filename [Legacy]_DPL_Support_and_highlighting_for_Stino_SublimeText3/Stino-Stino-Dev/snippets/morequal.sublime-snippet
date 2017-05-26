@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+morequal
+]]></content>
+    <tabTrigger>morequal</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino more or equal operator</description>
+</snippet>

@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+Out(${1:Name}, ${2:RGB_Object}, ${3:Mode});
+]]></content>
+    <tabTrigger>Out</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino Out for RGB</description>
+</snippet>

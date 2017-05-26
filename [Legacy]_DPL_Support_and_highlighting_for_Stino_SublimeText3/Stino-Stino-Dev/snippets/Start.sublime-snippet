@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+Start(${1:Speed});
+]]></content>
+    <tabTrigger>Start</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Begins the data connection via serial port</description>
+</snippet>

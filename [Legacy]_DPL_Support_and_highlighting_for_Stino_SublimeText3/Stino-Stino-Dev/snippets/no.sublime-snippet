@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+no
+]]></content>
+    <tabTrigger>no</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino no operator</description>
+</snippet>

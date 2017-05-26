@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+BoardLEDOff;
+]]></content>
+    <tabTrigger>BoardLEDOff</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Off board LED</description>
+</snippet>

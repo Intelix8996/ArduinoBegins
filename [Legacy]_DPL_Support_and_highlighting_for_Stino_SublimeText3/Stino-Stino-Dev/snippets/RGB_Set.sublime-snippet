@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+Set(${1:R}, ${2:G}, ${3:B});
+]]></content>
+    <tabTrigger>Set</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino Set for RGB</description>
+</snippet>

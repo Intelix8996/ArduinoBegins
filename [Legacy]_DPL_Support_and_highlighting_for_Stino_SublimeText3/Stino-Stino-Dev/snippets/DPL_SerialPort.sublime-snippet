@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+DPL_SerialPort
+]]></content>
+    <tabTrigger>DPL_SerialPort</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino SerialPort namespace</description>
+</snippet>

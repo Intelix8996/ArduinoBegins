@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+RGB
+]]></content>
+    <tabTrigger>RGB</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino RGB LED class</description>
+</snippet>

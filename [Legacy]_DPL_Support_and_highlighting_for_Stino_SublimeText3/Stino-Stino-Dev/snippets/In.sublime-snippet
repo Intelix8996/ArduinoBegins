@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+In(${1:Arguments});
+]]></content>
+    <tabTrigger>In</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Reads information from serial port</description>
+</snippet>

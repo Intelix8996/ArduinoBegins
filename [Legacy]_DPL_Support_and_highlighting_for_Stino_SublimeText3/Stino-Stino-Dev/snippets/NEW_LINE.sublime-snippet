@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+NEW_LINE
+]]></content>
+    <tabTrigger>NEW_LINE</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>New line out mode</description>
+</snippet>

@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+Color(${1:R}, ${2:G}, ${3:B});
+]]></content>
+    <tabTrigger>Color</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino color class constructor</description>
+</snippet>

@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+POSITIVE
+]]></content>
+    <tabTrigger>POSITIVE</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Type of RGB LED</description>
+</snippet>
