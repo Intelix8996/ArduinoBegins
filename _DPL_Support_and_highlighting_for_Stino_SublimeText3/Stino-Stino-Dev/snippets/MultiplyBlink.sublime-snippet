@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-MultiplyBlink(${1:Pin}, ${2:Delay}, ${3:Times});
+MultiplyBlink(${1:Delay}, ${2:Times});
 ]]></content>
     <tabTrigger>MultiplyBlink</tabTrigger>
     <scope>source.arduino</scope>

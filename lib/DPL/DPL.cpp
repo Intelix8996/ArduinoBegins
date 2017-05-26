@@ -1,12 +1,6 @@
 #include "Arduino.h"
 #include "DPL.h"
 
-namespace DPL_PWM{
-    int Get(int pinNum){
-        return analogRead(pinNum);
-    }
-}
-
 namespace DPL_RGB{
 
     Color::Color (byte R, byte G, byte B){
@@ -107,68 +101,65 @@ namespace DPL_RGB{
             delay(1);
         }
     }
-
-    void Out(RGB LED_OBJ){
-        DPL_SerialPort::Out("R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "\t\tG: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "\t\tB: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
-    }
-
-    void Out(RGB LED_OBJ, int mode){
-        DPL_SerialPort::Out("R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "\t\tG: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "\t\tB: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
-        if (mode == DPL_SerialPort::NEW_LINE)
-            Serial.println("");
-    }
-
-    void Out(String NAME, RGB LED_OBJ, int mode){
-        DPL_SerialPort::Out(NAME + ": " + "R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "\t\tG: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "\t\tB: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
-        if (mode == DPL_SerialPort::NEW_LINE)
-            Serial.println("");
-    }
 }
 
-namespace DPL_DigitalPins {
-    void On (int pinNum){
-        digitalWrite(pinNum, HIGH);
+namespace DPL_Pins {
+    Pin::Pin(byte pinNumber, int mode){
+        this->pinNumber = pinNumber;
+        pinMode(this->pinNumber, mode);
     }
 
-    void Off (int pinNum){
-        digitalWrite(pinNum, LOW);
+    void Pin::On (){
+        digitalWrite(pinNumber, HIGH);
     }
 
-    void State(int pinNum, bool State){
-        digitalWrite(pinNum, State);
+    void Pin::Off (){
+        digitalWrite(pinNumber, LOW);
     }
 
-    bool Read (int pinNum){
-        return digitalRead(pinNum);
+    void Pin::State(bool State){
+        digitalWrite(pinNumber, State);
     }
 
-    void Blink (int pinNum, int dl) {
-        On(pinNum);
+    bool Pin::Read (){
+        return digitalRead(pinNumber);
+    }
+
+    void Pin::Blink (int dl) {
+        On();
         delay(dl);
-        Off(pinNum);
+        Off();
     }
 
-    void MultiplyBlink (int pinNum, int dl, int times) {
+    void Pin::MultiplyBlink (int dl, int times) {
       for (int i = 0; i < times; ++i) {
-        On(pinNum);
+        On();
         delay(dl);
-        Off(pinNum);
+        Off();
         delay(dl);
       }
+    }
+
+    int Pin::Get(){
+        return analogRead(pinNumber);
     }
 }
 
 namespace DPL_SerialPort{
+    SerialPort::SerialPort(int bod){
+        this->bod = bod;
+        Serial.begin(this->bod);
+    }
 
-    void Start(int bod){
+    void SerialPort::Start(){
         Serial.begin(bod);
     }
 
-    int In (){
+    int SerialPort::In (){
         return Serial.parseInt();
     }
 
-    float In (String arg){
+    float SerialPort::In (String arg){
         if (arg == "-f")
             return Serial.parseFloat();
         if (arg == "-d")

@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-State(${1:Pin}, ${2:State});
+State(${1:State});
 ]]></content>
     <tabTrigger>State</tabTrigger>
     <scope>source.arduino</scope>

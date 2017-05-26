@@ -1,0 +1,20 @@
+<snippet>
+    <content><![CDATA[
+#include "DPL.h"
+
+using namespace DPL_Pins;
+
+Pin LED(LEDBOARD, OUTPUT);
+const int Delay = 500;
+
+void setup (){
+}
+
+void loop (){
+  LED.MultiplyBlink(Delay, 1);
+}
+]]></content>
+    <tabTrigger>!B</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Blink example</description>
+</snippet>

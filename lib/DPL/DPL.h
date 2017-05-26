@@ -29,12 +29,6 @@
 #define GREEN Color(0, 255, 0)
 #define BLUE Color(0, 0, 255)
 
-namespace DPL_PWM{
-    #include "PWM.h"
-
-    int Get(int pinNum);
-}
-
 namespace DPL_RGB{
     enum LED_Types{
         POSITIVE,
@@ -70,27 +64,31 @@ namespace DPL_RGB{
 
         void Lerp(Color baseColor, Color targetColor, int step);
     };
-
-    void Out(RGB LED_OBJ);
-
-    void Out(RGB LED_OBJ, int mode);
-
-    void Out(String NAME, RGB LED_OBJ, int mode);
 }
 
-namespace DPL_DigitalPins {
+namespace DPL_Pins {
+    class Pin {
+    public:
+        byte pinNumber = 0;
 
-    void On (int pinNum);
+        Pin(byte pinNumber, int mode);
 
-    void Off (int pinNum);
+        void On ();
 
-    void State (int pinNum, bool State);
+        void Off ();
 
-    bool Read (int pinNum);
+        void State (bool State);
 
-    void Blink (int pinNum, int dl);
+        bool Read ();
 
-    void MultiplyBlink (int pinNum, int dl, int times);
+        void Blink (int dl);
+
+        void MultiplyBlink (int dl, int times);
+
+        #include "PWM.h"
+
+        int Get();
+    };
 }
 
 namespace DPL_SerialPort{
@@ -100,9 +98,16 @@ namespace DPL_SerialPort{
         LINE,
     };
 
-    #include "comm_impl.h"
+    class SerialPort{
+    public:
+        int bod = 9600;
 
-    void Start(int bod);
+        SerialPort(int bod);
+
+        #include "comm_impl.h"
+
+        void Start();
+    };
 
     bool isBufferEmpty();
 

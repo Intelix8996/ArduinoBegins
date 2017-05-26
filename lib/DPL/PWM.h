@@ -1,5 +1,5 @@
 template <typename T>
-void Set(int pinNum, T amount){
+void Set(T amount){
     amount = constrain(amount, 0, 255);
-    analogWrite(pinNum, amount);
+    analogWrite(pinNumber, amount);
 }

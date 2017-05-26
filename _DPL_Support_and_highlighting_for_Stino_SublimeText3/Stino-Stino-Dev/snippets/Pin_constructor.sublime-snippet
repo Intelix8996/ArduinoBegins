@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+Pin(${1:Pin Number});
+]]></content>
+    <tabTrigger>Pin</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino Pin class constructor</description>
+</snippet>

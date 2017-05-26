@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-Off(${1:Pin});
+Off();
 ]]></content>
     <tabTrigger>Off</tabTrigger>
     <scope>source.arduino</scope>

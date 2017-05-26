@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-Blink(${1:Pin}, ${2:Delay});
+Blink(${1:Delay});
 ]]></content>
     <tabTrigger>Blink</tabTrigger>
     <scope>source.arduino</scope>

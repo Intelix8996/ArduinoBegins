@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+SerialPort
+]]></content>
+    <tabTrigger>SerialPort</tabTrigger>
+    <scope>source.arduino</scope>
+    <description>Arduino SerialPort class</description>
+</snippet>

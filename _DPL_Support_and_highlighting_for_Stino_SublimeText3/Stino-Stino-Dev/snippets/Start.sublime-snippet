@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-Start(${1:Speed});
+Start();
 ]]></content>
     <tabTrigger>Start</tabTrigger>
     <scope>source.arduino</scope>

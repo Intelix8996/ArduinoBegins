@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-Read(${1:pin});
+Read();
 ]]></content>
     <tabTrigger>Read</tabTrigger>
     <scope>source.arduino</scope>
