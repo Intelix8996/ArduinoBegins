@@ -2,7 +2,7 @@
 #define RES_G 6
 #define RES_B 11
 
-#include "DPL.h"
+#include "DPL_Legacy.h"
 
 using namespace DPL_PWM;
 using namespace DPL_RGB;

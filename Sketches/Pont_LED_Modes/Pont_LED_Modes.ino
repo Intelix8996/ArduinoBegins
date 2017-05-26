@@ -3,7 +3,7 @@
 #define RES_B 11
 #define BUTTON 8
 
-#include "DPL.h"
+#include "DPL_Legacy.h"
 
 byte mode = 1;
 bool state = 0;

@@ -2,7 +2,7 @@
 #define RES_G 6
 #define RES_B 5
 
-#include "DPL.h"
+#include "DPL_Legacy.h"
 
 using namespace DPL_DigitalPins;
 using namespace DPL_SerialPort;

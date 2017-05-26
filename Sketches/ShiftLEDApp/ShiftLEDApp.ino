@@ -2,7 +2,7 @@
 #define LATCH 12
 #define CLOCK 8
 
-#include "DPL.h"
+#include "DPL_Legacy.h"
 
 byte val = 0;
 

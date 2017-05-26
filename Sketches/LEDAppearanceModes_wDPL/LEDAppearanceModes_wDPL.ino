@@ -3,7 +3,7 @@
 #define LEDBOARD 13
 #define BUTTON 8
 
-#include "DPL.h"
+#include "DPL_Legacy.h"
 //#include "LowPower.h"
 
 using namespace DPL_SerialPort;

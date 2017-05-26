@@ -1,6 +1,6 @@
 #define BUZZER 12
 
-#include "DPL.h"
+#include "DPL_Legacy.h"
 
 using namespace DPL_SerialPort;
 
