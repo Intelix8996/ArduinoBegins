@@ -1,8 +1,8 @@
 <snippet>
     <content><![CDATA[
-Out(${1:Source}, ${2:Mode});
+Send(${1:Source}, ${2:Mode});
 ]]></content>
-    <tabTrigger>Out</tabTrigger>
+    <tabTrigger>Send</tabTrigger>
     <scope>source.arduino</scope>
     <description>Prints information to serial port</description>
 </snippet>

@@ -1,8 +1,8 @@
 <snippet>
     <content><![CDATA[
-Out(${1:RGB_Object});
+Send(${1:RGB_Object});
 ]]></content>
-    <tabTrigger>Out</tabTrigger>
+    <tabTrigger>Send</tabTrigger>
     <scope>source.arduino</scope>
-    <description>Arduino Out for RGB</description>
+    <description>Arduino Send for RGB</description>
 </snippet>

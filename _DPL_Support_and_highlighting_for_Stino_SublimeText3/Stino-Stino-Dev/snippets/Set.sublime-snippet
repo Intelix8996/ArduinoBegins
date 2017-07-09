@@ -1,8 +1,8 @@
 <snippet>
     <content><![CDATA[
-Set(${1:value});
+setPWM(${1:value});
 ]]></content>
-    <tabTrigger>Set</tabTrigger>
+    <tabTrigger>setPWM</tabTrigger>
     <scope>source.arduino</scope>
     <description>Arduino Set for PWM</description>
 </snippet>

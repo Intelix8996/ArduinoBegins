@@ -1,8 +1,8 @@
 <snippet>
     <content><![CDATA[
-Get();
+readPWM();
 ]]></content>
-    <tabTrigger>Get</tabTrigger>
+    <tabTrigger>readPWM</tabTrigger>
     <scope>source.arduino</scope>
-    <description>Arduino Get for PWM</description>
+    <description>Arduino Read for PWM</description>
 </snippet>

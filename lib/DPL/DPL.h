@@ -29,6 +29,23 @@
 #define GREEN Color(0, 255, 0)
 #define BLUE Color(0, 0, 255)
 
+#define Set RGB_IO_SETCOLOR
+#define Lerp RGB_IO_MACRO_LERPCOLOR
+
+#define On DIGITAL_IO_SETLOGICLEVEL_HIGH
+#define Off DIGITAL_IO_SETLOGICLEVEL_LOW
+#define setState DIGITAL_IO_SETLOGICLEVEL_CUSTOMSTATE
+#define readState DIGITAL_IO_READLOGICLEVEL
+#define Blink DIGITAL_IO_MACRO_BLINK
+#define MultiplyBlink DIGITAL_IO_MACRO_BLINK_MULTIPLY
+#define setPWM ANALOG_IO_SETPWMSIGNAL
+#define readPWM ANALOG_IO_READPWMSIGNAL
+
+#define Start SERIAL_IO_SERIALCONNECTION_BEGIN
+#define Init SERIAL_IO_SERIALCONNECTION_BEGIN
+#define Send SERIAL_IO_SENDDATA
+#define Receive SERIAL_IO_READNUMBER
+
 namespace DPL_RGB{
     enum LED_Types{
         POSITIVE,
@@ -55,14 +72,14 @@ namespace DPL_RGB{
         Color color = Color(0, 0, 0);
 
         RGB(int PIN_R, int PIN_G, int PIN_B, int TYPE);
-
-        void Set(byte R, byte G, byte B);
-
-        void Set(Color cl);
-
-        void Lerp(Color targetColor, int step);
-
-        void Lerp(Color baseColor, Color targetColor, int step);
+        //Set
+        void RGB_IO_SETCOLOR(byte R, byte G, byte B);
+        //Set
+        void RGB_IO_SETCOLOR(Color cl);
+        //Lerp
+        void RGB_IO_MACRO_LERPCOLOR(Color targetColor, int step);
+        //Lerp
+        void RGB_IO_MACRO_LERPCOLOR(Color baseColor, Color targetColor, int step);
     };
 }
 
@@ -73,21 +90,22 @@ namespace DPL_Pins {
 
         Pin(byte pinNumber, int mode);
 
-        void On ();
-
-        void Off ();
-
-        void State (bool State);
-
-        bool Read ();
-
-        void Blink (int dl);
-
-        void MultiplyBlink (int dl, int times);
-
+        //On
+        void DIGITAL_IO_SETLOGICLEVEL_HIGH ();
+        //Off
+        void DIGITAL_IO_SETLOGICLEVEL_LOW ();
+        //SetState
+        void DIGITAL_IO_SETLOGICLEVEL_CUSTOMSTATE (bool State);
+        //Read
+        bool DIGITAL_IO_READLOGICLEVEL ();
+        //Blink
+        void DIGITAL_IO_MACRO_BLINK (int dl);
+        //MultiplyBlink
+        void DIGITAL_IO_MACRO_BLINK_MULTIPLY (int dl, int times);
+        //Set
         #include "PWM.h"
-
-        int Get();
+        //Get
+        int ANALOG_IO_READPWMSIGNAL();
     };
 }
 
@@ -103,10 +121,10 @@ namespace DPL_SerialPort{
         int bod = 9600;
 
         SerialPort(int bod);
-
+        //In and Out
         #include "comm_impl.h"
-
-        void Start();
+        //Start
+        void SERIAL_IO_SERIALCONNECTION_BEGIN ();
     };
 
     bool isBufferEmpty();

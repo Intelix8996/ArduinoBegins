@@ -1,8 +1,8 @@
 <snippet>
     <content><![CDATA[
-Read();
+readState();
 ]]></content>
-    <tabTrigger>Read</tabTrigger>
+    <tabTrigger>readState</tabTrigger>
     <scope>source.arduino</scope>
     <description>Reads the state of pin</description>
 </snippet>

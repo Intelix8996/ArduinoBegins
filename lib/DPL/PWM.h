@@ -1,5 +1,5 @@
 template <typename T>
-void Set(T amount){
+void ANALOG_IO_SETPWMSIGNAL (T amount){
     amount = constrain(amount, 0, 255);
     analogWrite(pinNumber, amount);
 }

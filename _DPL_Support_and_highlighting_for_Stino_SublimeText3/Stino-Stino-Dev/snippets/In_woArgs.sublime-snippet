@@ -1,8 +1,8 @@
 <snippet>
     <content><![CDATA[
-In();
+Receive();
 ]]></content>
-    <tabTrigger>In</tabTrigger>
+    <tabTrigger>Receive</tabTrigger>
     <scope>source.arduino</scope>
     <description>Reads information from serial port</description>
 </snippet>

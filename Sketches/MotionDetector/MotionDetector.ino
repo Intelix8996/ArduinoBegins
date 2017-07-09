@@ -25,13 +25,13 @@ SerialPort SC(9600);
 void setup() {
   SC.Start();
   distPri = IR.distance();
-  lightPri = IN.Get();
+  lightPri = IN.readPWM();
 }
 
 void loop() {
   deltaDist = distPri - IR.distance();
-  deltaLight = lightPri - IN.Get();
-  SC.Out(S(deltaDist) + " "  + S(deltaLight), NEW_LINE);
+  deltaLight = lightPri - IN.readPWM();
+  SC.Send(S(deltaDist) + " "  + S(deltaLight), NEW_LINE);
 
   deltaLight = constrain(deltaLight, 50, 255);
   deltaDist = constrain(deltaDist, 15, 255);

@@ -1,8 +1,8 @@
 <snippet>
     <content><![CDATA[
-State(${1:State});
+setState(${1:State});
 ]]></content>
-    <tabTrigger>State</tabTrigger>
+    <tabTrigger>setState</tabTrigger>
     <scope>source.arduino</scope>
     <description>Sets state on pin</description>
 </snippet>

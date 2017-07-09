@@ -80,8 +80,8 @@ void loop() {
 }
 
 void PreSetup (){
-  bool A = enc_A.Read();
-  bool B = enc_B.Read();
+  bool A = enc_A.readState();
+  bool B = enc_B.readState();
 
   if (!A && enc_A_prev && millis() - timer >= 25) {
     if (B){
@@ -115,7 +115,7 @@ void PreSetup (){
     LCD.print("sec   ");
   }
 
-  if (!Button.Read()){
+  if (!Button.readState()){
     isDELAYSet = true;
     LCDInit();
   }
@@ -124,7 +124,7 @@ void PreSetup (){
 }
 
 void Loop (int val) {
-  bool BUTTON = !Button.Read();
+  bool BUTTON = !Button.readState();
 
   if (millis() - timer >= DELAY) {
     for (int i = 0; i < LEDAmount; ++i) {
@@ -156,7 +156,7 @@ void Loop (int val) {
 }
 
 void LockedLoop (int val) {
-  bool BUTTON = !Button.Read();
+  bool BUTTON = !Button.readState();
 
   if (millis() - timer >= DELAY) {
     for (int i = 0; i < LEDAmount; ++i) {
@@ -190,8 +190,8 @@ void LockedLoop (int val) {
 }
 
 void EncHandler () {
-  bool A = enc_A.Read();
-  bool B = enc_B.Read();
+  bool A = enc_A.readState();
+  bool B = enc_B.readState();
 
   if (!A && enc_A_prev) {
     if (B)

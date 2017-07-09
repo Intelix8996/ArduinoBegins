@@ -20,7 +20,7 @@ namespace DPL_RGB{
         pinMode(this->PIN_B, OUTPUT);
     }
 
-    void RGB::Set(byte R, byte G, byte B){
+    void RGB::RGB_IO_SETCOLOR(byte R, byte G, byte B){
         color.R = R;
         color.G = G;
         color.B = B;
@@ -37,7 +37,7 @@ namespace DPL_RGB{
         }
     }
 
-    void RGB::Set(Color cl){
+    void RGB::RGB_IO_SETCOLOR(Color cl){
         this->color.R = cl.R;
         this->color.G = cl.G;
         this->color.B = cl.B;
@@ -54,7 +54,7 @@ namespace DPL_RGB{
         }
     }
 
-    void RGB::Lerp(Color targetColor, int step){
+    void RGB::RGB_IO_MACRO_LERPCOLOR(Color targetColor, int step){
         while (true){
             if (color.R < targetColor.R && color.R + step <= 255)
                 color.R += step;
@@ -77,7 +77,7 @@ namespace DPL_RGB{
         }
     }
 
-    void RGB::Lerp(Color baseColor, Color targetColor, int step){
+    void RGB::RGB_IO_MACRO_LERPCOLOR(Color baseColor, Color targetColor, int step){
         color = baseColor;
 
         while (true){
@@ -109,29 +109,29 @@ namespace DPL_Pins {
         pinMode(this->pinNumber, mode);
     }
 
-    void Pin::On (){
+    void Pin::DIGITAL_IO_SETLOGICLEVEL_HIGH (){
         digitalWrite(pinNumber, HIGH);
     }
 
-    void Pin::Off (){
+    void Pin::DIGITAL_IO_SETLOGICLEVEL_LOW (){
         digitalWrite(pinNumber, LOW);
     }
 
-    void Pin::State(bool State){
+    void Pin::DIGITAL_IO_SETLOGICLEVEL_CUSTOMSTATE(bool State){
         digitalWrite(pinNumber, State);
     }
 
-    bool Pin::Read (){
+    bool Pin::DIGITAL_IO_READLOGICLEVEL (){
         return digitalRead(pinNumber);
     }
 
-    void Pin::Blink (int dl) {
+    void Pin::DIGITAL_IO_MACRO_BLINK (int dl) {
         On();
         delay(dl);
         Off();
     }
 
-    void Pin::MultiplyBlink (int dl, int times) {
+    void Pin::DIGITAL_IO_MACRO_BLINK_MULTIPLY (int dl, int times) {
       for (int i = 0; i < times; ++i) {
         On();
         delay(dl);
@@ -140,7 +140,7 @@ namespace DPL_Pins {
       }
     }
 
-    int Pin::Get(){
+    int Pin::ANALOG_IO_READPWMSIGNAL(){
         return analogRead(pinNumber);
     }
 }
@@ -151,15 +151,15 @@ namespace DPL_SerialPort{
         Serial.begin(this->bod);
     }
 
-    void SerialPort::Start(){
+    void SerialPort::SERIAL_IO_SERIALCONNECTION_BEGIN(){
         Serial.begin(bod);
     }
 
-    int SerialPort::In (){
+    int SerialPort::SERIAL_IO_READNUMBER (){
         return Serial.parseInt();
     }
 
-    float SerialPort::In (String arg){
+    float SerialPort::SERIAL_IO_READNUMBER (String arg){
         if (arg == "-f")
             return Serial.parseFloat();
         if (arg == "-d")

@@ -1,5 +1,5 @@
 template <typename T>
-void Out(T str, int mode)
+void SERIAL_IO_SENDDATA(T str, int mode)
 {
     Serial.print(String(str));
     if (mode == NEW_LINE)
@@ -7,27 +7,27 @@ void Out(T str, int mode)
 }
 
 template <typename T>
-void Out(T str)
+void SERIAL_IO_SENDDATA(T str)
 {
     Serial.print(String(str));
 }
 
-void Out(DPL_RGB::RGB LED_OBJ){
-    Out("R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "\t\tG: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "\t\tB: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
+void SERIAL_IO_SENDDATA(DPL_RGB::RGB LED_OBJ){
+    SERIAL_IO_SENDDATA("R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "\t\tG: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "\t\tB: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
 }
 
-void Out(DPL_RGB::RGB LED_OBJ, int mode){
-    Out("R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "\t\tG: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "\t\tB: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
+void SERIAL_IO_SENDDATA(DPL_RGB::RGB LED_OBJ, int mode){
+    SERIAL_IO_SENDDATA("R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "\t\tG: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "\t\tB: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
     if (mode == DPL_SerialPort::NEW_LINE)
         Serial.println("");
 }
 
-void Out(String NAME, DPL_RGB::RGB LED_OBJ, int mode){
-    Out(NAME + ": " + "R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "\t\tG: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "\t\tB: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
+void SERIAL_IO_SENDDATA(String NAME, DPL_RGB::RGB LED_OBJ, int mode){
+    SERIAL_IO_SENDDATA(NAME + ": " + "R: " + S(LED_OBJ.color.R) + " on Pin " + S(LED_OBJ.PIN_R) + "\t\tG: " + S(LED_OBJ.color.G) + " on Pin " + S(LED_OBJ.PIN_G) + "\t\tB: " + S(LED_OBJ.color.B) + " on Pin " + S(LED_OBJ.PIN_B));
     if (mode == DPL_SerialPort::NEW_LINE)
         Serial.println("");
 }
 
-int In ();
+int SERIAL_IO_READNUMBER ();
 
-float In (String arg);
+float SERIAL_IO_READNUMBER (String arg);
